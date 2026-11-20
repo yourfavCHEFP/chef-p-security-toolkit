@@ -1,5 +1,6 @@
 {
   "name": "chefp-security",
+  "description": "Portable, evidence-driven security scanning, verified findings, and incident response for coding agents.",
   "owner": { "name": "Olumide Oladosu" },
   "plugins": [
     {

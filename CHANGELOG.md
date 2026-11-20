@@ -3,7 +3,8 @@
 ## 3.1.0
 - Portable across coding agents: SKILL.md follows the Agent Skills standard (license, compatibility, metadata; description under 1024 chars), no longer depends on a Claude-only path variable (path locator snippet), and verification works in any agent through `verify-prompt.sh` (fresh-session prompt that omits the finder's reasoning).
 - `install.sh --agent claude|codex|gemini|copilot|cursor|opencode|universal|all [--project]`; backups moved out of skills folders; `AGENTS.md` fallback for agents without skills; `docs/compatibility.md`.
-- Self-test grew to 91 checks (spec compliance, multi-agent install, locator, verifier prompt).
+- Fixed report generation on Python 3.11, self-test discovery in `run-tests.sh`, and OSV-Scanner behavior when no lockfiles exist.
+- Self-test grew to 92 checks (spec compliance, multi-agent install, locator, verifier prompt, and test-runner discovery).
 
 ## 3.0.0
 - Findings store (`findings.py`): one JSON file, rules enforced in code (verdicts, independent verification, traces, fix proof), cross-tool dedupe by advisory alias and location, generated reports, SARIF export, coverage ledger with staleness.

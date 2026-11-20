@@ -66,7 +66,7 @@ Lockfile parsing for incidents: pip/uv/poetry/Pipfile, npm/yarn/pnpm, Go, Cargo,
 - Noise suppression (`.secignore`, test-file rules) is visible in reports, never silent.
 
 ## What is tested, and what is not
-Tested (`bash tests/selftest.sh`, 91 checks, no scanners needed): Agent Skills spec compliance of `SKILL.md`, multi-agent install paths, path locator, verifier prompt, script syntax, findings ingest/merge/suppression on fixtures, enforced verdict rules, SARIF and report generation, coverage staleness, recon, trust gate, incident exact and range matching, scorer, honest SKIPPED reporting.
+Tested (`bash tests/selftest.sh`, 92 checks, no scanners needed): Agent Skills spec compliance of `SKILL.md`, multi-agent install paths, path locator, verifier prompt, script syntax, findings ingest/merge/suppression on fixtures, enforced verdict rules, SARIF and report generation, coverage staleness, recon, trust gate, incident exact and range matching, scorer, honest SKIPPED reporting, and self-test discovery by the test runner.
 Exercised by hand on real runs: Bandit through the full fix loop; Semgrep, Gitleaks, Trivy, OSV-Scanner, Hadolint and zizmor on a practice repo and a real project.
 Agent compatibility is by format and documented paths: only Claude Code has been run end to end by the maintainer; Codex, Gemini CLI, Cursor, Copilot and OpenCode are format-compatible but not yet run (see `docs/compatibility.md` for a 5-minute smoke test you can report back). Not yet measured: hunt-mode quality with real LLM runs, and a head-to-head against other audit skills. The harness for both is in `evals/`; results will be published there, including the metrics where this toolkit loses. `claude plugin validate` has not been run in CI yet.
 
