@@ -13,11 +13,14 @@ if [ -f package.json ] && command -v npm >/dev/null 2>&1 && grep -q '"test"' pac
 if { ls ./*.sln ./*.csproj >/dev/null 2>&1; } && command -v dotnet >/dev/null 2>&1; then echo "+ dotnet test"; dotnet test; exit $?; fi
 if [ -f pom.xml ] && command -v mvn >/dev/null 2>&1; then echo "+ mvn -q test"; mvn -q test; exit $?; fi
 if command -v python3 >/dev/null 2>&1 && python3 -m pytest --version >/dev/null 2>&1; then
-  if [ -d tests ] || [ -d test ] || [ -f pytest.ini ] || [ -f tox.ini ] || ls test_*.py *_test.py >/dev/null 2>&1 || grep -qs 'tool.pytest' pyproject.toml; then
+  if [ -f pytest.ini ] || [ -f tox.ini ] || ls test_*.py *_test.py >/dev/null 2>&1 || grep -qs 'tool.pytest' pyproject.toml || find tests test -type f \( -name 'test_*.py' -o -name '*_test.py' \) -print -quit 2>/dev/null | grep -q .; then
     echo "+ python3 -m pytest -q"; python3 -m pytest -q; rc=$?
     [ "$rc" -eq 5 ] && { echo "NO TESTS COLLECTED"; exit 4; }
     exit $rc
   fi
+fi
+if [ -f tests/selftest.sh ]; then
+  echo "+ bash tests/selftest.sh"; bash tests/selftest.sh; exit $?
 fi
 echo "NO TESTS DETECTED - any fix here is NOT test-verified; say so and require human review."
 exit 4

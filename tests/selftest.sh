@@ -79,6 +79,8 @@ echo "== trust gate"
 mkdir -p "$T/untrusted"
 fails "untrusted dir blocked" bash "$SK/trust.sh" check "$T/untrusted"
 bash "$SK/run-tests.sh" "$T/untrusted" >/dev/null 2>&1; [ $? -eq 5 ] && ok "run-tests refuses untrusted repo (exit 5)" || bad "run-tests refusal"
+mkdir -p "$T/test-runner/tests"; printf 'echo selftest-dispatched\n' > "$T/test-runner/tests/selftest.sh"
+if env SEC_TRUST=trusted bash "$SK/run-tests.sh" "$T/test-runner" | grep -q "selftest-dispatched"; then ok "run-tests detects tests/selftest.sh"; else bad "run-tests detects tests/selftest.sh"; fi
 check "SEC_TRUST=trusted allows" env SEC_TRUST=trusted bash "$SK/trust.sh" check "$T/untrusted"
 check "SEC_SANDBOX=1 allows" env SEC_SANDBOX=1 bash "$SK/trust.sh" check "$T/untrusted"
 fails "agent (no tty) cannot mark trusted" bash "$SK/trust.sh" add "$T/untrusted" --i-am-the-owner
