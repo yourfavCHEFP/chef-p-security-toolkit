@@ -353,7 +353,13 @@ def cmd_report(a):
     o.append("\n## Summary\n")
     for v in VERDICTS:
         n = [f for f in L if f["verdict"] == v]
-        if n: o.append(f"- {v}: {len(n)} ({', '.join(f'{s} {sum(1 for f in n if f['severity']==s)}' for s in reversed(SEV) if any(f['severity']==s for f in n))})")
+        if n:
+            severity_counts = ", ".join(
+                "{} {}".format(s, sum(1 for f in n if f["severity"] == s))
+                for s in reversed(SEV)
+                if any(f["severity"] == s for f in n)
+            )
+            o.append(f"- {v}: {len(n)} ({severity_counts})")
     sup = len(d["findings"]) - len([f for f in d["findings"] if not f.get("suppressed")])
     if sup: o.append(f"- suppressed (noise rules / .secignore): {sup}")
     def table(title, items):
