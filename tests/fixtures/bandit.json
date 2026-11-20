@@ -1,0 +1,28 @@
+{
+ "results": [
+  {
+   "test_id": "B608",
+   "test_name": "hardcoded_sql_expressions",
+   "issue_severity": "MEDIUM",
+   "issue_text": "Possible SQL injection via string-based query construction.",
+   "filename": "app.py",
+   "line_number": 11
+  },
+  {
+   "test_id": "B602",
+   "test_name": "subprocess_popen_with_shell_equals_true",
+   "issue_severity": "HIGH",
+   "issue_text": "subprocess call with shell=True identified, security issue.",
+   "filename": "app.py",
+   "line_number": 15
+  },
+  {
+   "test_id": "B101",
+   "test_name": "assert_used",
+   "issue_severity": "LOW",
+   "issue_text": "Use of assert detected.",
+   "filename": "tests/test_app.py",
+   "line_number": 9
+  }
+ ]
+}

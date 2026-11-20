@@ -1,0 +1,3 @@
+# Supply chain and build
+Look for: dependencies without lockfiles or hashes; install scripts run from untrusted packages; `curl | bash`; unpinned base images and CI actions (tags are mutable); CI jobs with write tokens on untrusted triggers (`pull_request_target`, `workflow_run`); secrets exposed to fork PRs; self-hosted runners on public repos; release pipelines without provenance; typosquat-prone names; internal package names that could be claimed publicly (dependency confusion); vendored copies of vulnerable code.
+Method: trace what runs, with which credentials, triggered by whom. Pair with scanner output (zizmor, osv-scanner) and `incident-check.sh` when an advisory is involved.

@@ -1,0 +1,3 @@
+# Authentication and authorization
+Look for: authz checked only in the UI or only on some verbs; tenant id taken from the request instead of the session; privilege fields (`role`, `is_admin`) writable by users; password reset / invite / email-change flows that skip verification; JWT with `alg` not pinned, `none`, missing `exp`/`aud`; API keys compared with `==`; tokens in URLs or logs; long-lived keys with no revocation; "service" endpoints trusting an internal header; CSRF on cookie-auth state changes; session fixation.
+Method: write the access matrix (role x endpoint x object) and test each cell against the code, especially cross-tenant cells.

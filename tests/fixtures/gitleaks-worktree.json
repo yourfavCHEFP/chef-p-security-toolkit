@@ -1,0 +1,9 @@
+[
+ {
+  "RuleID": "github-pat",
+  "File": "app.py",
+  "StartLine": 6,
+  "Commit": "",
+  "Secret": "REDACTED"
+ }
+]

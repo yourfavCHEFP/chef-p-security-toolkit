@@ -1,0 +1,12 @@
+# shellcheck shell=bash disable=SC2034
+# Template for a new tool plugin. Copy to ../tools.d/NN-yourtool.sh (must end in .sh).
+# Contract (the orchestrator sources this file in a subshell; it provides $TARGET and $OUT, both absolute):
+TOOL_NAME=yourtool            # unique short name
+TOOL_MODE=static              # static | zap | strix | any mode name you invent (run: scan.sh <mode>)
+TOOL_ECOS="any"               # any | space-separated: python node go rust dotnet java ruby php docker terraform gha mlmodels
+TOOL_REPORT="yourtool.json"   # primary report file written into $OUT ("" if none)
+TOOL_HINT="how to install"
+tool_installed() { command -v yourtool >/dev/null 2>&1; }
+# optional: refuse to run (print the reason, return 1). Use for version deny-lists and scope checks.
+# tool_guard() { return 0; }
+tool_run() { yourtool --json "$TARGET" > "$OUT/yourtool.json"; }

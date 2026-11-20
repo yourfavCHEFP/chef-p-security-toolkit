@@ -1,0 +1,9 @@
+security-reports/
+strix_runs/
+security-testbed/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.env.*
+*.bak

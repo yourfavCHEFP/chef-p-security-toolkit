@@ -1,0 +1,27 @@
+{
+ "Results": [
+  {
+   "Target": "requirements.txt",
+   "Vulnerabilities": [
+    {
+     "VulnerabilityID": "CVE-2018-18074",
+     "PkgName": "requests",
+     "InstalledVersion": "2.19.1",
+     "FixedVersion": "2.20.0",
+     "Severity": "HIGH",
+     "Title": "requests: credentials sent on redirect"
+    }
+   ]
+  },
+  {
+   "Target": "Dockerfile",
+   "Misconfigurations": [
+    {
+     "ID": "DS-0002",
+     "Title": "Image user should not be root",
+     "Severity": "HIGH"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,3 @@
+# Memory safety and native code (C, C++, Rust unsafe, FFI)
+Look for: unchecked lengths into `memcpy`/`strcpy`/`sprintf`, integer overflow in size calculations, use-after-free and double-free on error paths, uninitialized reads, signed/unsigned confusion, format strings, parser code reading attacker bytes, `unsafe` blocks that assume invariants the safe code does not guarantee, FFI boundaries that trust foreign pointers/lengths.
+Method: start at the parsers and deserializers; track each length from the wire to every use. Prefer proving the missing bound over guessing. Pair with sanitizers/fuzzing results when available.

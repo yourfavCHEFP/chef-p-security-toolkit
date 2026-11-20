@@ -1,0 +1,10 @@
+{
+  "name": "chef-p-security-toolkit",
+  "version": "3.1.0",
+  "description": "Find, verify, fix and respond to security problems in any language: tool-grounded scanning, hunt mode with independent verification, proven fixes on a branch, and breach/advisory exposure checks.",
+  "author": { "name": "Olumide Oladosu" },
+  "homepage": "https://github.com/yourfavCHEFP/chef-p-security-toolkit",
+  "repository": "https://github.com/yourfavCHEFP/chef-p-security-toolkit",
+  "license": "MIT",
+  "keywords": ["security", "sast", "dependencies", "secrets", "supply-chain", "incident-response", "llm-security", "semgrep", "trivy", "gitleaks"]
+}

@@ -1,0 +1,2 @@
+# Language not covered (Ruby, PHP, Swift, Elixir, ...)
+Do not guess commands. Find: (1) manifest + lockfile names, (2) the test command, (3) the official audit tool, (4) how to upgrade one package and regenerate the lock. Check the project's README/CI config for the real commands, say what you could not confirm, and ask the user. Semgrep, Gitleaks, Trivy and OSV-Scanner already cover most languages' code, secrets and lockfiles. Add language support using `references/extending.md`.

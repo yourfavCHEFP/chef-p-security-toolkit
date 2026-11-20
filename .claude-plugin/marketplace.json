@@ -1,0 +1,13 @@
+{
+  "name": "chefp-security",
+  "owner": { "name": "Olumide Oladosu" },
+  "plugins": [
+    {
+      "name": "chef-p-security-toolkit",
+      "source": "./",
+      "description": "Tool-grounded security scanning, independently verified hunting, proven fixes, and breach exposure checks for any language.",
+      "version": "3.1.0",
+      "license": "MIT"
+    }
+  ]
+}

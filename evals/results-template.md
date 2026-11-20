@@ -1,0 +1,12 @@
+# Results (copy per run)
+- Tool / version / commit:
+- Model and settings:
+- Target (truth file):
+- Date:
+- Recall (score.py): / 
+- Fix rate (score.py): / ; tests:
+- Unmatched findings adjudicated: true extras / false positives
+- Regressions introduced:
+- False claims or unverified-as-confirmed:
+- Cost (tokens or $) and wall time:
+- Notes (where this tool lost):

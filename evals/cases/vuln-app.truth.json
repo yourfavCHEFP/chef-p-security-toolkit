@@ -1,0 +1,147 @@
+{
+  "name": "vuln-app (seeded by make-testbed.sh)",
+  "note": "Ground truth for the practice repo. 'verify' entries let `score.py fix` re-check a fix with verify.sh.",
+  "items": [
+    {
+      "id": "sql-injection",
+      "class": "injection",
+      "file": "app.py",
+      "any": [
+        "B608",
+        "sql"
+      ],
+      "verify": {
+        "tool": "bandit",
+        "id": "B608",
+        "path": "app.py"
+      }
+    },
+    {
+      "id": "command-injection",
+      "class": "injection",
+      "file": "app.py",
+      "any": [
+        "B602",
+        "B605",
+        "shell=True",
+        "command"
+      ],
+      "verify": {
+        "tool": "bandit",
+        "id": "B602",
+        "path": "app.py"
+      }
+    },
+    {
+      "id": "unsafe-pickle",
+      "class": "any",
+      "file": "app.py",
+      "any": [
+        "B301",
+        "pickle",
+        "deserial"
+      ],
+      "verify": {
+        "tool": "bandit",
+        "id": "B301",
+        "path": "app.py"
+      }
+    },
+    {
+      "id": "weak-hash-md5",
+      "class": "any",
+      "file": "app.py",
+      "any": [
+        "B324",
+        "md5",
+        "weak hash"
+      ],
+      "verify": {
+        "tool": "bandit",
+        "id": "B324",
+        "path": "app.py"
+      }
+    },
+    {
+      "id": "hardcoded-token",
+      "class": "secrets",
+      "file": "app.py",
+      "any": [
+        "github-pat",
+        "secret",
+        "token"
+      ],
+      "verify": {
+        "tool": "gitleaks",
+        "id": "github-pat",
+        "path": "app.py"
+      }
+    },
+    {
+      "id": "dep-requests",
+      "class": "dependency",
+      "any": [
+        "requests"
+      ]
+    },
+    {
+      "id": "dep-pyyaml",
+      "class": "dependency",
+      "any": [
+        "pyyaml"
+      ]
+    },
+    {
+      "id": "dep-jinja2",
+      "class": "dependency",
+      "any": [
+        "jinja2"
+      ]
+    },
+    {
+      "id": "docker-root-user",
+      "class": "iac",
+      "file": "Dockerfile",
+      "any": [
+        "DS-?0002",
+        "root",
+        "\\bUSER\\b",
+        "DL3002"
+      ]
+    },
+    {
+      "id": "docker-add-vs-copy",
+      "class": "iac",
+      "file": "Dockerfile",
+      "any": [
+        "DL3020",
+        "\\bADD\\b",
+        "COPY"
+      ],
+      "verify": {
+        "tool": "hadolint",
+        "id": "DL3020",
+        "path": "Dockerfile"
+      }
+    },
+    {
+      "id": "gha-dangerous-trigger",
+      "class": "ci-cd",
+      "file": "ci.yml",
+      "any": [
+        "dangerous-triggers",
+        "pull_request_target"
+      ]
+    },
+    {
+      "id": "gha-unpinned-action",
+      "class": "ci-cd",
+      "file": "ci.yml",
+      "any": [
+        "unpinned",
+        "pinned",
+        "mutable"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+[
+ {
+  "ident": "dangerous-triggers",
+  "desc": "use of fundamentally insecure workflow trigger",
+  "determinations": {
+   "severity": "High"
+  },
+  "locations": [
+   {
+    "symbolic": {
+     "key": {
+      "Local": {
+       "given_path": ".github/workflows/ci.yml"
+      }
+     }
+    },
+    "concrete": {
+     "location": {
+      "start_point": {
+       "row": 2
+      }
+     }
+    }
+   }
+  ]
+ }
+]

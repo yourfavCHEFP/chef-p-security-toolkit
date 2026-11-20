@@ -1,0 +1,2 @@
+# Secrets, configuration, deployment
+Look for: secrets in code, history, images, CI logs, error pages; `.env` files shipped or world-readable; debug mode, default credentials, permissive CORS, public buckets and admin ports; over-broad IAM; TLS verification disabled; logs that record tokens or personal data; backups with secrets. Scanners find literal secrets; hunting finds the places they leak by design (logging, telemetry, error reporting, client responses).

@@ -1,0 +1,4 @@
+# Web and API
+Look for: object-level access (IDOR/BOLA: `/orders/<id>` without an owner check), function-level access (admin routes without role checks), mass assignment (binding request JSON straight onto models), SSRF (user URL fetched server-side, webhook/import features), path traversal in file endpoints, unauthenticated debug/metrics/docs routes, verbose errors, missing rate limits on login/reset/expensive endpoints, CORS with credentials, open redirects, file upload handling, race conditions on balance/stock/coupon updates (check-then-act without a transaction or lock), JWT/session handling.
+Quick checks: list every route from recon `entrypoint`; for each, note auth dependency, how the resource owner is determined, which parameters reach a sink.
+Kills false positives: framework-level auth middleware applied to the router, ORM filter by `current_user`, allow-listed hosts, `is_relative_to` checks.

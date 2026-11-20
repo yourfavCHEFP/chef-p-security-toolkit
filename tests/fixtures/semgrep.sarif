@@ -1,0 +1,66 @@
+{
+ "version": "2.1.0",
+ "runs": [
+  {
+   "results": [
+    {
+     "ruleId": "python.lang.security.audit.formatted-sql-query",
+     "level": "error",
+     "message": {
+      "text": "Detected formatted SQL query."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "app.py"
+        },
+        "region": {
+         "startLine": 11
+        }
+       }
+      }
+     ]
+    },
+    {
+     "ruleId": "python.lang.security.audit.subprocess-shell-true",
+     "level": "warning",
+     "message": {
+      "text": "subprocess with shell=True"
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "app.py"
+        },
+        "region": {
+         "startLine": 15
+        }
+       }
+      }
+     ]
+    },
+    {
+     "ruleId": "generic.noise",
+     "level": "note",
+     "message": {
+      "text": "noise in ignored dir"
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": ".claude/skills/x/y.js"
+        },
+        "region": {
+         "startLine": 3
+        }
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
